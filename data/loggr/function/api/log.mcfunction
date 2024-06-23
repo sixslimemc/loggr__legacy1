@@ -13,6 +13,9 @@
 # ...
 #--------------------
 
+execute store result storage loggr:in log.time.tick int 1 run time query gametime
+execute store result storage loggr:in log.time.subtick_order int 1 run scoreboard players add *subtick_order -loggr 1
+
 #-- HOOK : loggr:on_log --
 data modify storage loggr:hook on_log append value {}
 data modify storage loggr:hook on_log[-1].info.entry set from storage loggr:in log

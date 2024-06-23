@@ -3,4 +3,8 @@ LogEntry {
   source: string
   level: int
   message: any
+  time: {
+    tick: int
+    subtick_order: int
+  }
 }

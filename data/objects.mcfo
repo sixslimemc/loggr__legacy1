@@ -1,0 +1,6 @@
+
+LogEntry {
+  source: string
+  level: int
+  message: any
+}

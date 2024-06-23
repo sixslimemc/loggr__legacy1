@@ -1,0 +1,12 @@
+> #loggr:hook > on_log
+--------------------
+ * when 'loggr:api/log' is called.
+--------------------
+ -> entry: LogEntry
+--------------------
+ ...
+--------------------
+ - loggr does not actually implement any functionality on its own, it only provides this hook. other packs are to use this hook to implement their own functionality.
+--------------------
+# APPEND
+--------------------

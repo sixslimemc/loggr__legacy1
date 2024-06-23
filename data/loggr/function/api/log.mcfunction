@@ -8,10 +8,13 @@
 #--------------------
 #> logs a <message>, sent from a <source> datapack namespace, with log <level>.
 #--------------------
-#- example in: {source: "my_pack", message: {my_data: 4, is_cool: false}, level: 3}
+#- example in: {source: "my_pack", message: {my_event:{data: 4, other_data: true}}, level: 3}
 #--------------------
 # ...
 #--------------------
+
+execute unless data storage loggr:in log.source run data modify storage loggr:in log.source set value "DEBUG"
+execute unless data storage loggr:in log.level run data modify storage loggr:in log.level set value 0
 
 execute store result storage loggr:in log.time.tick int 1 run time query gametime
 execute store result storage loggr:in log.time.subtick_order int 1 run scoreboard players add *subtick_order -loggr 1

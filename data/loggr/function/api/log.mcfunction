@@ -9,6 +9,7 @@
 #> logs a <message>, sent from a <source> datapack namespace, with log <level>.
 #--------------------
 #- example in: {source: "my_pack", message: {my_event:{data: 4, other_data: true}}, level: 3}
+#- it is encouraged to provide a structured object as the <message> (like the example above) to allow for querying.
 #--------------------
 # ...
 #--------------------

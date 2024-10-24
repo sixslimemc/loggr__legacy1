@@ -6,9 +6,14 @@
 - [load](https://github.com/sixslime/load)
 
 # Overview
-Loggr is a single-function interface paired with a set of simple conventions.
+Loggr provides exactly 3 things:
+- An API function to create log entries.
+- A hook to implement logging behavior.
+- A simple set of logging conventions.
 
-#### Logging Conventions:
+It does **not** provide any logging behavior implementation.
+
+### Logging Conventions:
 
 A 'log entry' has the following components:
 | NBT path | Type | Description |
@@ -27,9 +32,6 @@ Log levels have the following meanings:
 | `2` | Warning | Non-critical error or warning. |
 | `3` | Information | General useful information. |
 
-Loggr provides a single-function interface for creating log entries, aswell as a hook for external datapacks to implement logging behavior. \
-
-Loggr itself does not provide any implementation.
 # Usage
 #### Logging Messages
 To create a log entry, run `loggr:api/log` with the following inputs under the NBT storage location `loggr:in`:
@@ -41,6 +43,9 @@ To create a log entry, run `loggr:api/log` with the following inputs under the N
 
 This creates a log entry containing **\<message\>**, from the **\<source\>** namespace, with log level **\<level\>**. \
 The `time` and `subtick_order` of the log entry are calculated automatically.
+
+It is recommended that **\<message\>** be a structured object, however it is not required to be. \
+*This is based in the assumption that your log entry will be stored and queried.*
 
 #### Providing Implementation
 When a log entry is created, it is stored in NBT storage `loggr:hook -> on_log[-1].info.entry` and `#loggr:hook/on_log` is executed. \
@@ -76,9 +81,6 @@ data modify storage myimpl:data all_logs append from storage loggr:hook on_log[-
 # send a chat message
 tellraw @a "A log entry was created."
 ```
-
-
-
 
 ___
 

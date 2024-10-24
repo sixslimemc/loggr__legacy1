@@ -9,11 +9,11 @@
 Loggr provides exactly 3 things:
 - A public function to create log entries.
 - A public hook to implement logging behavior.
-- A simple set of logging conventions.
+- A minimal set of logging conventions.
 
 It does **not** provide any logging behavior implementation.
 
-### Logging Conventions:
+### Conventions:
 
 A 'log entry' has the following components:
 | NBT path | Type | Description |

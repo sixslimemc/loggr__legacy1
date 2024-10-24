@@ -6,7 +6,7 @@
 - [load](https://github.com/sixslime/load)
 
 # Overview
-Loggr is simply a set of logging conventions paired with an interface.
+Loggr is a single-function interface paired with a set of conventions.
 
 #### Logging Conventions:
 

@@ -33,7 +33,7 @@ Log levels have the following meanings:
 | `3` | Information | General useful information. |
 
 # Usage
-#### Logging Messages
+### Logging Messages
 To create a log entry, run `loggr:api/log` with the following inputs under the NBT storage location `loggr:in`:
 | NBT path | Type | Default Value |
 |--|--|--|
@@ -47,7 +47,7 @@ The `time` and `subtick_order` of the log entry are calculated automatically.
 It is recommended that **\<message\>** be a structured object, however it is not required to be. \
 *This is based in the assumption that your log entry will be stored and queried.*
 
-#### Providing Implementation
+### Providing Implementation
 When a log entry is created, it is stored in NBT storage `loggr:hook -> on_log[-1].info.entry` and `#loggr:hook/on_log` is executed. \
 To implement behavior, add subscriber function(s) to the `#loggr:hook/on_log` function tag.
 

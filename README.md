@@ -7,8 +7,8 @@
 
 # Overview
 Loggr provides exactly 3 things:
-- An API function to create log entries.
-- A hook to implement logging behavior.
+- An public function to create log entries.
+- A public hook to implement logging behavior.
 - A simple set of logging conventions.
 
 It does **not** provide any logging behavior implementation.

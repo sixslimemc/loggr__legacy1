@@ -13,9 +13,11 @@ Loggr provides exactly 3 things:
 
 It does **not** provide any logging behavior implementation.
 
-### Conventions:
+# Usage
 
-A 'log entry' has the following components:
+### Log Format
+
+Loggr defines a 'log entry' as an object with the following components:
 | NBT path | Type | Description |
 |--|--|--|
 | `message` | any | The information carried by this log entry. |
@@ -32,26 +34,28 @@ Log levels have the following meanings:
 | `2` | Warning | Non-critical error or warning. |
 | `3` | Information | General useful information. |
 
-# Usage
+When creating log entries, they should adhere to this format. \
+When implementing logging behavior, it can be assumed that log entries are in this format.
+
 ### Logging Messages
-To create a log entry, run `loggr:api/log` with the following inputs under the NBT storage location `loggr:in`:
+Loggr provides the function `loggr:api/log`, which takes the following inputs under the NBT storage location `loggr:in`:
 | NBT path | Type | Default Value |
 |--|--|--|
 | `log.message` | any | *(none)* |
 | `log.source` | string | `"DEBUG"` |
 | `log.level` | int (`0..3`) | `0` |
 
-This creates a log entry containing **\<message\>**, from the **\<source\>** namespace, with log level **\<level\>**. \
+This creates and 'sends' a log entry containing **\<message\>**, from the **\<source\>** namespace, with log level **\<level\>**. \
 The `time` and `subtick_order` of the log entry are calculated automatically.
 
 It is recommended that **\<message\>** be a structured object, however it is not required to be. \
 *This is based in the assumption that your log entry will be stored and queried.*
 
 ### Providing Implementation
-When a log entry is created, it is stored in NBT storage `loggr:hook -> on_log[-1].info.entry` and `#loggr:hook/on_log` is executed. \
+When a log entry is sent, it is stored in NBT storage `loggr:hook -> on_log[-1].info.entry` and `#loggr:hook/on_log` is executed. \
 To implement behavior, add subscriber function(s) to the `#loggr:hook/on_log` function tag.
 
-*`loggr:hook -> on_log[-1].info.entry` should be treated as read-only.*
+*`loggr:hook -> on_log[-1].info.entry` must be treated as read-only.*
 
 ## Examples
 

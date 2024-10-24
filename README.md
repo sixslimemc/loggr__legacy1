@@ -43,7 +43,7 @@ This creates a log entry containing **\<message\>**, from the **\<source\>** nam
 The `time` and `subtick_order` of the log entry are calculated automatically.
 
 #### Providing Implementation
-When a log entry is created, it is stored under `on_log[-1].info.entry` in NBT storage `loggr:hook` and `#loggr:hook/on_log` is executed. \
+When a log entry is created, it is stored in NBT storage `loggr:hook -> on_log[-1].info.entry` and `#loggr:hook/on_log` is executed. \
 To implement behavior, add subscriber function(s) to the `#loggr:hook/on_log` function tag.
 
 *`loggr:hook -> on_log[-1].info.entry` should be treated as read-only.*

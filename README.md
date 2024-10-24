@@ -7,7 +7,7 @@
 
 # Overview
 Loggr provides exactly 3 things:
-- An public function to create log entries.
+- A public function to create log entries.
 - A public hook to implement logging behavior.
 - A simple set of logging conventions.
 

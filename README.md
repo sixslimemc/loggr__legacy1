@@ -1,6 +1,6 @@
 
 # Loggr | loggr
-> Dead-simple logging framework that must be implemented externally via hook.
+> Dead-simple logging interface.
 
 ## Dependencies
 - [load](https://github.com/sixslime/load)

@@ -17,12 +17,12 @@ It does **not** provide any logging behavior implementation.
 
 ### Log Format
 
-Loggr defines a 'log entry' as an object with the following components:
+Loggr defines a 'log entry' as an object with the following keys:
 | NBT path | Type | Description |
 |--|--|--|
 | `message` | any | The information carried by this log entry. |
 | `source` | string | The datapack namespace this log entry originated from. |
-| `level` | int (`0..3`) | The level/category of this log entry. |
+| `level` | int (`0..3`) | The level of this log entry. |
 | `time` | int | The gametime when this log entry was created. |
 | `subtick_order` | int | The chronological ordering of this entry compared to other log entries created on the same tick (starting at 1).|
 
@@ -34,8 +34,7 @@ Log levels have the following meanings:
 | `2` | Warning | Non-critical error or warning. |
 | `3` | Information | General useful information. |
 
-When creating log entries, they should adhere to this format. \
-When implementing logging behavior, it can be assumed that log entries are in this format.
+When creating log entries, they must adhere to this format.
 
 ### Logging Messages
 Loggr provides the function `loggr:api/log`, which takes the following inputs under the NBT storage location `loggr:in`:
@@ -49,7 +48,7 @@ This creates and 'sends' a log entry containing **\<message\>**, from the **\<so
 The `time` and `subtick_order` of the log entry are calculated automatically.
 
 It is recommended that **\<message\>** be a structured object, however it is not required to be. \
-*This is based in the assumption that your log entry will be stored and queried.*
+*This is based in the assumption that logs will be stored and queried.*
 
 ### Providing Implementation
 When a log entry is sent, it is stored in NBT storage `loggr:hook -> on_log[-1].info.entry` and `#loggr:hook/on_log` is executed. \
